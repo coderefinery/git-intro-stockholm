@@ -73,16 +73,44 @@ commit or having one logical change spread over several commits.
 
 ---
 
-## [An analogy](https://dev.to/sublimegeek/git-staging-area-explained-like-im-five-1anh)
-
-<img src="{{ site.baseurl }}/img/ikea_box.jpg" width="30%">
-
-- You're moving and you have a box to pack your things in.
-- You can put stuff into the box, but you can also take stuff out of the box.
-- You wouldn't want to mix items from the bathroom, kitchen and living room into the same box.
-- The box corresponds to the staging area of Git, where you can craft your commits.
-- Committing is like sealing the box and sticking a label on it.
-- You wouldn't want to label your box with "stuff", but rather give a more descriptive label.
+> ## Analogies to the staging area
+>
+> We give two examples and the instructor can pick one or both:
+> - Analogy using moving boxes
+> - Analogy using shopping receipts
+>
+>
+> ### [Analogy using moving boxes](https://dev.to/sublimegeek/git-staging-area-explained-like-im-five-1anh)
+>
+> <img src="{{ site.baseurl }}/img/ikea_box.jpg" width="30%">
+>
+> - You're moving and you have a box to pack your things in.
+> - You can put stuff into the box, but you can also take stuff out of the box.
+> - You wouldn't want to mix items from the bathroom, kitchen and living room into the same box.
+> - The box corresponds to the staging area of Git, where you can craft your commits.
+> - Committing is like sealing the box and sticking a label on it.
+> - You wouldn't want to label your box with "stuff", but rather give a more descriptive label.
+>
+>
+> ### Analogy using shopping receipts
+>
+> - You need to go shopping and buy some stuff for work and for home.
+>   You need two separate receipts.
+> - Bad idea: go through the store get home stuff, pay, start at the
+>   beginning and go through the store again.  This is inefficient and
+>   annoying.
+> - What you actually do:
+>   - Go through the store and put everything you need in your shopping
+>     basket.
+>   - Get to the checkout.  Put your home stuff on the conveyor belt
+>     (`git add`).  Check both the belt (`git diff --staged`) and your
+>     basket (`git diff`) to make sure you got all your home stuff.
+>   - Pay (`git commit`)
+>   - Repeat for work stuff.
+>
+> In order to keep organized, you have to use multiple locations to
+> stage things in sequence.
+{: .discussion}
 
 ---
 
@@ -112,8 +140,10 @@ $ git diff             # see **unstaged** changes
 $ git diff --staged    # see **staged** changes
 $ git rm               # removes a file
 $ git reset            # unstages staged changes
+                       # in latest Git: git restore --staged <path>
 $ git checkout <path>  # check out the latest staged version ( or committed
                        # version if file has not been staged )
+                       # in latest Git: git restore <path>
 ```
 
 **Recommendation:**
@@ -143,7 +173,7 @@ $ git commit                      # commit everything that is staged
 > 2. Use `git add` to stage one of the changes.
 > 3. Use `git status` to see what's going on, and use `git diff` and `git diff --staged` to see the changes.
 > 4. Feel some regret and unstage the staged change.
-{: .task}
+{: .challenge}
 
 ---
 
@@ -152,15 +182,15 @@ $ git commit                      # commit everything that is staged
 > One option to help us create nice logical commits is to stage *interactively*
 > with `git add -p` (you can also directly commit interactively with `git commit -p`):
 >
-> 1. Modify multiple lines in `instructions.txt`.  Make sure that they
->    are separated by at least one unmodified line.
+> 1. Modify multiple lines in `instructions.txt`.
+>    **Make sure that they are separated by at least one unmodified line.**
 > 2. Run `git add -p instructions.txt`.
 > 3. Type `?` and Enter to get an explanation of what the different options mean.
 > 4. See if you can use the `s` (split), `y` and `n` options to include only a subset of your modifications in the staging.
 > 5. When you're done, inspect the situation with `git status`, `git diff` and `git diff --staged`.
 > 6. If you want, you can try repeating the procedure above but use `git commit -p` instead of `git add -p` to commit directly.
 >
-{: .task}
+{: .challenge}
 
 ---
 

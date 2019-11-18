@@ -272,34 +272,47 @@ Date:   Thu May 4 15:02:56 2017 +0200
 > $ git show   # show various types of objects
 > $ git diff   # show changes
 > ```
-{: .task}
-
-> ## (Optional) Exercise: more changes and renaming
->
-> 1. Apply and commit more changes.
-> 2. Add new files.
-> 3. When you commit, try `git commit -v` (will show you the difference in the editor).
-> 4. Rename files with `git mv` (you will need to `git commit` the rename).
-> 5. Use `git log --oneline` and `git status`.
-{: .task}
+{: .challenge}
 
 > ## (Optional) Exercise: Comparing and showing commits
 >
 > 1. Inspect differences between commit hashes with `git diff <hash1> <hash2>`.
 > 2. Have a look at specific commits with `git show <hash>`.
-{: .task}
+{: .challenge}
+
+> ## (Optional) Exercise: Renaming and removing files
+>
+> 1. Create a new file, `git add` and `git commit` the file.
+> 2. Rename the file with `git mv` (you will need to `git commit` the rename).
+> 3. Use `git log --oneline` and `git status`.
+> 4. Remove the file with `git rm` (again you need to `git commit` the change).
+> 5. Inspect the history with `git log --stat`. Can you recover the removed file from the Git history?
+{: .challenge}
 
 > ## (Optional) Exercise: Visual diff tools
 >
 > - Make further modifications and experiment with `git difftool` (requires installing one of the [visual diff tools](https://coderefinery.github.io/installation/difftools/)):
 >
+> On Windows or Linux:
 > ```
-> $ git difftool
+> $ git difftool --tool=meld
+> ```
+>
+> On macOS:
+> ```
+> $ git difftool --tool=opendiff
 > ```
 >
 > ![Git events]({{ site.baseurl }}/img/meld.png
 > "git difftool meld"){:class="img-responsive" style="max-width:70%"}
-{: .task}
+>
+> You probably want to use the same visual diff tool every time and
+> you can configure Git for that:
+> ```
+> $ git config --global diff.tool meld
+> ```
+>
+{: .challenge}
 
 ---
 
@@ -327,7 +340,12 @@ then paragraph(s) with more details in free form, if necessary**.
 - Many projects start out as projects "just for me" and end up to be successful projects
   that are developed by 50 people over decades.
 - [Commits with multiple authors](https://help.github.com/articles/creating-a-commit-with-multiple-authors/)
+
+Good references:
+
 - ["My favourite Git commit"](https://fatbusinessman.com/2019/my-favourite-git-commit)
+- ["On commit messages"](https://who-t.blogspot.com/2009/12/on-commit-messages.html)
+- ["How to Write a Git Commit Message"](https://chris.beams.io/posts/git-commit/)
 
 ---
 

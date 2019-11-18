@@ -31,6 +31,14 @@ repository"){:class="img-responsive"}
 - Here the branch is called "master".
 - "HEAD" is the current position (remember the recording head of tape recorders?).
 
+### Now we want to do this:
+
+<div style="border:2px solid #000000;">
+  <img src="{{ site.baseurl }}/img/octopus.jpeg" width="60%">
+  <br>
+  Source: <a href="https://twitter.com/jay_gee/status/703360688618536960">https://twitter.com/jay_gee/status/703360688618536960</a>
+</div>
+
 Software development is often not linear:
 
 - We typically need at least one version of the code to "work" (to compile, to give expected results, ...).
@@ -163,31 +171,38 @@ $ git graph
 
 ---
 
-## Interlude: Different meanings of "checkout"
-
-Depending on the context `git checkout` can do very different actions:
-
-1) Switch to a branch:
-
-```
-$ git checkout <branchname>
-```
-
-2) Bring the working tree to a specific state (commit):
-
-```
-$ git checkout <hash>
-```
-
-3) Set a file/path to a specific state (**throws away all unstaged/uncommitted changes**):
-
-```
-$ git checkout <path/file>
-```
-
-This is unfortunate from the user's point of view but the way Git is implemented it makes sense.
-Picture `git checkout` as an operation that brings the working tree to a specific state.
-The state can be a commit or a branch (pointing to a commit).
+> ## Interlude: Different meanings of "checkout"
+>
+> Depending on the context `git checkout` can do very different actions:
+>
+> 1) Switch to a branch:
+>
+> ```
+> $ git checkout <branchname>
+> ```
+>
+> 2) Bring the working tree to a specific state (commit):
+>
+> ```
+> $ git checkout <hash>
+> ```
+>
+> 3) Set a file/path to a specific state (**throws away all unstaged/uncommitted changes**):
+>
+> ```
+> $ git checkout <path/file>
+> ```
+>
+> This is unfortunate from the user's point of view but the way Git is implemented it makes sense.
+> Picture `git checkout` as an operation that brings the working tree to a specific state.
+> The state can be a commit or a branch (pointing to a commit).
+>
+> In latest Git this is much nicer:
+> ```shell
+> $ git switch <branchname>  # switch to a different branch
+> $ git restore <path/file>  # discard changes in working directory
+> ```
+{: .callout}
 
 ---
 
@@ -252,7 +267,7 @@ The state can be a commit or a branch (pointing to a commit).
 > ![]({{ site.baseurl }}/img/gitink/git-branch-3.svg)
 >
 > And for comparison this is how it looks [on GitHub](https://github.com/coderefinery/recipe/network).
-{: .task}
+{: .challenge}
 
 ---
 
@@ -437,7 +452,7 @@ may have a hard time finding them as there is no branch pointing to them.
 > 4. Merge the new branch to `master`.
 > 5. Examine the result with `git graph`.
 > 6. Have you expected the result? Discuss what you see.
-{: .task}
+{: .challenge}
 
 ---
 
