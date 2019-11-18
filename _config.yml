@@ -1,5 +1,5 @@
 fork_me_ribbon_url: https://github.com/coderefinery/git-intro
-baseurl: "/git-intro"
+baseurl: "/git-intro-stockholm"
 title: "Git introduction"
 
 source: .
